@@ -42,8 +42,8 @@ export const Item = ({item, width}) => {
           style={{cursor: 'pointer'}}
         />
         <Box
-          display={isHovered ? "blocked" : 'none'}
-          position="relative"
+          display={isHovered ? "block" : 'none'}
+          position="absolute"
           bottom="10%"
           left="0"
           width="100%"
@@ -86,8 +86,8 @@ export const Item = ({item, width}) => {
       <Box>
         <Typography variant="subtitle2" color={neutral.dark}>
           {category
-            .replace(/([A-Z])/g, " $1")
-            .replace(/^./, (str) => str.toUpperCase())}
+            ?.replace(/([A-Z])/g, " $1")
+            ?.replace(/^./, (str) => str.toUpperCase())}
         </Typography>
         <Typography>{name}</Typography>
         <Typography fontWeight="bold">${price}</Typography>
