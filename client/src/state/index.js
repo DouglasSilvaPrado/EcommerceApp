@@ -15,7 +15,19 @@ export const cartSlice = createSlice({
     },
 
     addToCart: (state, action) => {
-      state.cart = [...state.cart, action.payload.item];
+      const itemIsAlreadyInCart = state.cart.some(
+        (item) => item.id === action.payload.item.id
+      )
+
+      if(itemIsAlreadyInCart){
+        state.cart = state.cart.map((item) =>
+          item.id === action.payload.item.id
+            ? { ...item, count: item.count + 1}
+            : item
+        )
+        return
+      }
+      state.cart = [...state.cart, {...action.payload.item, count: 1}];
     },
 
     removeFromCart: (state, action) => {
