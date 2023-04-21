@@ -43,7 +43,6 @@ export const CartMenu = () => {
       left="0"
       top="0"
       overflow="auto"
-      onClick={() => dispatch(setIsCartOpen({}))}
     >
       {/* MODAL */}
       <Box
